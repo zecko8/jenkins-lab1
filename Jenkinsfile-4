@@ -6,7 +6,7 @@ pipeline {
     stage('Test') {
       steps {
         sh 'hostname'
-        sh 'ls /var'
+        sh 'ls /var/log'
 
       }
     }
