@@ -1,1 +1,1 @@
-print("This line will be printed.")
+princt("This line will be printed.")
