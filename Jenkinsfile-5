@@ -1,13 +1,19 @@
 pipeline {
-  agent {
-    docker { image 'python' }
-  }
-  stages {
-    stage('Test') {
-      steps {
-        sh 'test.py'
-
-      }
-    }
-  }
-}
+	  agent none
+	  stages {
+	    stage('preparazione') {
+	      agent {
+	        docker { image 'python' }
+	      }
+	      steps {
+	        sh 'hostname'
+	      }
+	    }
+	    stage('set python') {
+	      agent any
+	      steps {
+	        sh 'hostname'
+	      }
+	    }
+	  }
+	}
