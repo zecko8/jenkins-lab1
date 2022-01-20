@@ -10,3 +10,21 @@ pipeline {
 	    }
 	  }
 	}
+pipeline {
+	  agent none
+	  stages {
+	    stage('download') {
+	      agent any
+	      steps {
+	        sh 'mvn --version'
+	      }
+	    }
+	    stage('test') {
+	      agent { dockerfile true}
+	      steps {
+	        sh 'python test.py'
+	      }
+	    }
+	  }
+	}
+
