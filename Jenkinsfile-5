@@ -1,23 +1,11 @@
 pipeline {
-	  agent none
+	  agent { dockerfile true }
 	  stages {
-	    stage('preparazione') {
-	      agent {
-	        docker { image 'python' 
-			 label 'prova'
-		}
-	      }
+	    stage('Test') {
 	      steps {
-	        sh 'hostname'
-		sh 'pwd'
-	      }
-	    }
-	    stage('set python') {
-	      agent any
-	      steps {
-	        sh 'hostname'
-		sh 'docker cp test.py prova:/var/lib/jenkins/workspace/python/'
-		sh 'docker exec prova python /var/lib/jenkins/workspace/python/test.py'
+	        sh '''
+	          python test.py
+	        '''
 	      }
 	    }
 	  }
