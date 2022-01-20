@@ -1,22 +1,10 @@
 pipeline {
-	  agent { dockerfile true }
-	  stages {
-	    stage('Test') {
-	      steps {
-	        sh '''
-	          python test.py
-	        '''
-	      }
-	    }
-	  }
-	}
-pipeline {
 	  agent none
 	  stages {
 	    stage('download') {
 	      agent any
 	      steps {
-	        sh 'mvn --version'
+	        sh 'wget https://raw.githubusercontent.com/zecko8/jenkins-lab1/main/tesp.py'
 	      }
 	    }
 	    stage('test') {
