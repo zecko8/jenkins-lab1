@@ -1,3 +1,3 @@
-FROM node:16-alpine
+FROM python
 
-RUN apk add -U git curl
+COPY test.py /var/lib/jenkins/workspace/python/
