@@ -1,0 +1,13 @@
+pipeline {
+	  agent {
+	    docker { image 'python' }
+	  }
+	  stages {
+	    stage('Test') {
+	      steps {
+          sh 'wget https://raw.githubusercontent.com/zecko8/jenkins-lab1/main/tesp.py'
+	        sh 'python test.py'
+	      }
+	    }
+	  }
+	}
