@@ -4,7 +4,7 @@ pipeline {
 	    stage('download') {
 	      agent any
 	      steps {
-	        sh 'wget https://raw.githubusercontent.com/zecko8/jenkins-lab1/main/tesp.py'
+	        //sh 'wget https://raw.githubusercontent.com/zecko8/jenkins-lab1/main/tesp.py'
 		sh 'pwd'
 		sh 'ls'
 	      }
