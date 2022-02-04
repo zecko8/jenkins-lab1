@@ -23,7 +23,7 @@ pipeline {
 	        sh 'wget https://raw.githubusercontent.com/zecko8/jenkins-lab1/main/test.py'
 	        sh 'python test.py'
 	      }
-	    }
+	    
 	    stage('Deploy') {
 	      agent {
 	        docker { image 'ubuntu' }
