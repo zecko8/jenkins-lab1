@@ -1,0 +1,36 @@
+pipeline {
+	  agent {
+	    docker { image 'python' }
+	  }
+	  stages {
+	    stage('Test') {
+	      steps {
+         	sh 'wget https://raw.githubusercontent.com/zecko8/jenkins-lab1/main/test.py'
+	        sh 'python test.py'
+	      }
+	    }
+	  }
+	}
+  
+  pipeline {
+	  agent none
+	  stages {
+	    stage('Test') {
+	      agent {
+	        docker { image 'python' }
+	      }
+	      steps {
+	        sh 'wget https://raw.githubusercontent.com/zecko8/jenkins-lab1/main/test.py'
+	        sh 'python test.py'
+	      }
+	    }
+	    stage('Deploy') {
+	      agent {
+	        any
+	      }
+	      steps {
+	        sh 'OK'
+	      }
+	    }
+	  }
+	}
