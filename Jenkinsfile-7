@@ -26,10 +26,10 @@ pipeline {
 	    }
 	    stage('Deploy') {
 	      agent {
-	        any
+	        docker { image 'ubuntu' }
 	      }
 	      steps {
-	        sh 'OK'
+	        sh 'echo tutto ok'
 	      }
 	    }
 	  }
