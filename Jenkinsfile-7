@@ -12,7 +12,7 @@
 	    }
 	    stage('Deploy') {
 	      agent {
-	        docker { image 'ubuntu' }
+	        node { label 'master' }
 	      }
 	      steps {
 	        sh 'echo tutto ok'
